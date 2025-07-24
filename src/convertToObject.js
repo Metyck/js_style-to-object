@@ -16,7 +16,11 @@ function convertToObject(sourceString) {
   for (const string of strings) {
     const strArr = string.split(':');
 
-    result[strArr[0].trim()] = strArr[1].trim();
+    if (strArr[1].trim().length) {
+      result[strArr[0].trim()] = strArr[1].trim();
+    } else {
+      result[strArr[0].trim()] = '';
+    }
   }
 
   return result;
